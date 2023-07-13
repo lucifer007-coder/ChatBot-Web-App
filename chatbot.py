@@ -3,24 +3,30 @@ import openai
 import streamlit as st
 from streamlit_chat import message
 
+# Set Streamlit page configuration
+st.set_page_config(page_title='ChatBot🤖', layout='wide')
+
 # Open API key
-openai.api_key = 'your API key'
+openai.api_key = st.sidebar.text_input("API Key", type="password")
 
 # Generating responses from the api
 def generate_response(prompt):
     completions = openai.Completion.create(
-        engine = "text-davinci-003",
-        prompt = prompt,
-        max_tokens = 1024,
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=100,
         n=1,
         stop=None,
-        temperature=0.5
+        temperature=0.8,
+        top_p=None,
+        best_of=1,
     )
     messages = completions.choices[0].text
     return messages
 
 # Creating the chatbot interfaces
-st.title("A Chatbot WebApp Powered by OpenAI ")
+st.title("ChatBot 🤖")
+st.subheader("Created using OpenAI & Streamlit")
 
 # Storing the input
 if 'generated' not in st.session_state:
@@ -30,7 +36,7 @@ if 'past' not in st.session_state:
 
 # Creating a function that returns the user's input from a text input field
 def get_text():
-    input_text = st.text_input("You : ", key = "input")
+    input_text = st.text_input("Ask Me Anything: ", key = "input")
     return input_text
 
 # We will generate response using the 'generate response' function and store into variable called output
