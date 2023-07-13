@@ -18,11 +18,7 @@ pip install openai streamlit streamlit_chat
 
 ## Setup
 
-Before running the application, you need to provide your OpenAI API key. Replace `'your OpenAI api_key'` with your actual API key in the code:
-
-```python
-openai.api_key = 'your OpenAI api_key'
-```
+Before running the application, you need to provide your OpenAI API key. Put your actual API key in the sidebar in the WebApp.
 
 ## Generating Responses
 
@@ -39,10 +35,8 @@ The chat history is then displayed in reverse order, with the most recent messag
 To run the application, execute the Python script containing the code. It will start a local server and display the web interface in your browser.
 
 ```bash
-streamlit run your_script.py
+streamlit run chatbot.py
 ```
-
-Replace `your_script.py` with the name of the Python file containing the code.
 
 ## Usage
 
