@@ -17,7 +17,7 @@ def generate_response(prompt):
         max_tokens=500,
         n=1,
         stop=None,
-        temperature=0.9,
+        temperature=0.8,
         top_p=None,
         best_of=1,
     )
